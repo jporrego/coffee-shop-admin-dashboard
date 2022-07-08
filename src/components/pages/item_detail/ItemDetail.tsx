@@ -26,7 +26,9 @@ const ItemDetail = () => {
 
   const getItem = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/item/${params.id}`);
+      const response = await fetch(
+        process.env.REACT_APP_API_URL + `item/${params.id}`
+      );
       const data = await response.json();
       setProduct(data);
     } catch (error) {
@@ -36,7 +38,7 @@ const ItemDetail = () => {
 
   const onDelete = async () => {
     try {
-      await fetch(`http://localhost:4000/item/${params.id}/delete`, {
+      await fetch(process.env.REACT_APP_API_URL + `item/${params.id}/delete`, {
         method: "DELETE",
       });
       navigate("/");
