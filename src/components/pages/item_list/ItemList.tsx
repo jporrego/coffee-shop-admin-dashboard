@@ -25,12 +25,13 @@ function ItemList() {
         try {
           setLoading(true);
 
-          const response = await fetch("http://localhost:4000/");
+          const response = await fetch(process.env.REACT_APP_API_URL);
           const data = await response.json();
           setProducts(data);
 
           setLoading(false);
           setErrorMsg("");
+          break;
         } catch (error) {
           console.log(error);
           setLoading(false);
