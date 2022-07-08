@@ -21,7 +21,7 @@ const Categories = () => {
   const getCategories = async () => {
     try {
       const response = await fetch(
-        process.env.REACT_APP_API_URL + "/categories"
+        process.env.REACT_APP_API_URL + "categories"
       );
       const data = await response.json();
       setCategories(data);
@@ -35,7 +35,7 @@ const Categories = () => {
       //Disabled for safety
 
       const res = await fetch(
-        process.env.REACT_APP_API_URL + `/category/${id}/delete`,
+        process.env.REACT_APP_API_URL + `category/${id}/delete`,
         {
           method: "POST",
         }

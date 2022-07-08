@@ -41,8 +41,8 @@ const ItemCreate = () => {
   const getCategoriesAndBrands = async () => {
     try {
       const response = await Promise.all([
-        fetch(process.env.REACT_APP_API_URL + "/categories"),
-        fetch(process.env.REACT_APP_API_URL + "/brands"),
+        fetch(process.env.REACT_APP_API_URL + "categories"),
+        fetch(process.env.REACT_APP_API_URL + "brands"),
       ]);
       const categoryData = await response[0].json();
       const brandData = await response[1].json();
@@ -59,8 +59,8 @@ const ItemCreate = () => {
       // Then we add them object to the newItem object.
       setLoading(true);
       const response = await Promise.all([
-        fetch(process.env.REACT_APP_API_URL + `/category/${data.category}`),
-        fetch(process.env.REACT_APP_API_URL + `/brand/${data.brand}`),
+        fetch(process.env.REACT_APP_API_URL + `category/${data.category}`),
+        fetch(process.env.REACT_APP_API_URL + `brand/${data.brand}`),
       ]);
 
       const categoryData: Category = await response[0].json();
@@ -81,7 +81,7 @@ const ItemCreate = () => {
       formData.append("stock", newItem.stock.toString());
       formData.append("picture", data.picture[0]);
 
-      const res = await fetch(process.env.REACT_APP_API_URL + "/item/create", {
+      const res = await fetch(process.env.REACT_APP_API_URL + "item/create", {
         method: "POST",
         body: formData,
       });
@@ -93,7 +93,7 @@ const ItemCreate = () => {
         resData.message && showErrorMessage(resData.message);
         return;
       } else {
-        navigate(`/item/${resData._id}`);
+        navigate(`item/${resData._id}`);
       }
     } catch (error) {
       setLoading(false);

@@ -21,7 +21,7 @@ const CategoryCreate = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       const res = await fetch(
-        process.env.REACT_APP_API_URL + `/category/create`,
+        process.env.REACT_APP_API_URL + `category/create`,
         {
           method: "POST",
           headers: {

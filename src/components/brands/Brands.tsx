@@ -19,7 +19,7 @@ const Brands = () => {
 
   const getBrands = async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_API_URL + "/brands");
+      const response = await fetch(process.env.REACT_APP_API_URL + "brands");
       const data = await response.json();
       setBrands(data);
     } catch (error) {
@@ -29,9 +29,12 @@ const Brands = () => {
 
   const handleDeleteBrand = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:4000/brand/${id}/delete`, {
-        method: "POST",
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `brand/${id}/delete`,
+        {
+          method: "POST",
+        }
+      );
 
       if (res.status !== 200) {
         const data = await res.json();
