@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ItemList.css";
 import { Product as ProductInferface } from "../../../types";
 import Product from "../../product/Product";
+import Spinner from "../../../assets/spinner.svg";
 
 function ItemList() {
   const [products, setProducts] = useState<ProductInferface[]>([]);
@@ -70,6 +71,12 @@ function ItemList() {
           handleDeleteProduct={handleDeleteProduct}
         ></Product>
       ))}
+      {loading && (
+        <div className="spinner">
+          <img src={Spinner} alt="spinner" />
+        </div>
+      )}
+      {errorMsg}
     </div>
   );
 }
