@@ -20,13 +20,16 @@ const CategoryCreate = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const res = await fetch(`http://localhost:4000/category/create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/category/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       if (res.status !== 200) {
         throw new Error("Already exists");
       } else {

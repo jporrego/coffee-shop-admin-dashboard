@@ -20,7 +20,9 @@ const Categories = () => {
 
   const getCategories = async () => {
     try {
-      const response = await fetch("http://localhost:4000/categories");
+      const response = await fetch(
+        process.env.REACT_APP_API_URL + "/categories"
+      );
       const data = await response.json();
       setCategories(data);
     } catch (error) {
@@ -32,9 +34,12 @@ const Categories = () => {
     try {
       //Disabled for safety
 
-      const res = await fetch(`http://localhost:4000/category/${id}/delete`, {
-        method: "POST",
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/category/${id}/delete`,
+        {
+          method: "POST",
+        }
+      );
       let contentType = res.headers.get("content-type");
       if (contentType === null) {
         contentType = "";

@@ -85,7 +85,9 @@ const ItemEdit = () => {
 
   const getItemToEdit = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/item/${params.id}`);
+      const response = await fetch(
+        process.env.REACT_APP_API_URL + `/item/${params.id}`
+      );
       const data = await response.json();
       setItem(data);
     } catch (error) {
@@ -110,8 +112,8 @@ const ItemEdit = () => {
       // Then we add them object to the newItem object.
       setLoading(true);
       const response = await Promise.all([
-        fetch(`http://localhost:4000/category/${data.category}`),
-        fetch(`http://localhost:4000/brand/${data.brand}`),
+        fetch(process.env.REACT_APP_API_URL + `/category/${data.category}`),
+        fetch(process.env.REACT_APP_API_URL + `/brand/${data.brand}`),
       ]);
       const categoryData: Category = await response[0].json();
       const brandData: Brand = await response[1].json();
@@ -133,7 +135,7 @@ const ItemEdit = () => {
         formData.append("stock", newItem.stock.toString());
         formData.append("picture", data.picture[0]);
         const res = await fetch(
-          `http://localhost:4000/item/${params.id}/update-new-image`,
+          process.env.REACT_APP_API_URL + `/item/${params.id}/update-new-image`,
           {
             method: "POST",
             body: formData,
@@ -151,13 +153,16 @@ const ItemEdit = () => {
         }
       } else {
         newItem = { ...newItem, picture: item.img };
-        await fetch(`http://localhost:4000/item/${params.id}/update`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newItem),
-        });
+        await fetch(
+          process.env.REACT_APP_API_URL + `/item/${params.id}/update`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newItem),
+          }
+        );
         setLoading(false);
         navigate(`/item/${params.id}`);
       }

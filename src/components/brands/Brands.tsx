@@ -19,7 +19,7 @@ const Brands = () => {
 
   const getBrands = async () => {
     try {
-      const response = await fetch("http://localhost:4000/brands");
+      const response = await fetch(process.env.REACT_APP_API_URL + "/brands");
       const data = await response.json();
       setBrands(data);
     } catch (error) {
