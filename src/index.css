@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@500;600;700&family=Laila:wght@500;600;700&family=Lateef&display=swap');
+
+:root {
+  --black: #292124;
+  --white: #ffffff;
+  --blue: #6530D9;
+  --purple-dark: #753FBF;
+  --purple: #985EBF;
+  --purple-light: #BF7EAE;
+  --yellow: #F2A950;
+  --red: #e4544a;
+  --grey-dark: #646464;
+  --grey: #e4e4e4;
+  --grey-light: #e9e3dc;
+  --brown: #ab7d6e;
+  --brown-dark: #833822;
+  --brown-light: #c48875;
+  --cream: #f2e9e0;
+  /* Fonts */
+  --font-primary: 'Nunito', sans-serif;
+  --font-secondary: 'Laila', serif;
+  /* Utilities */
+  --big-padding: 2rem;
+  --small-padding: 1rem;
+  --product-section-max-width: 77rem;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.btn-round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rem;
+  width: 2rem;
+  height: 2rem;
+  font-weight: 800;
+  font-size: 1.4rem;
+  background-color: var(--brown-light);
+  color: var(--white);
+  border: none;
+  transition: all .15s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .btn-round:hover {
+    filter: brightness(1.1);
+  }
+}
+
+
+
+.btn-square--small {
+  border: none;
+  font-size: 1.8rem;
+  padding: .5rem 1rem;
+  font-weight: 600;
+  width: fit-content;
+  border-radius: .5rem;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-square--big {
+  border: none;
+  font-size: 1.4rem;
+  padding: .5rem 1rem;
+  font-weight: 600;
+  width: fit-content;
+  border-radius: .5rem;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .btn-square--small:hover, .btn-square--big:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-square--small:active, .btn-square--big:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn--brown {
+  background-color: var(--brown);
+  color: var(--white);
+}
+
+.btn--brown-light {
+  background-color: var(--brown-light);
+  color: var(--white);
+}
+
+.btn--purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-back {
+  font-size: 3rem;
+  color: var(--brown);
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+
+@media (pointer: fine) {
+  .btn-back:hover {
+    transform: scale(1.075);
+  }
+}
+
+
+a {
+  font-weight: 700;
+  color: var(--black);
+  height: fit-content;
+  transition: all 0.1s ease-out;
+}
+
+a:hover {
+  color: var(--grey-dark);
+}
+
+.delete-btn--text {
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: underline;
+  height: fit-content;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+}
+
+.delete-btn--text:hover {
+  color: var(--grey-dark);
+}
+
+.hover-translate-y {
+  transition: .15s ease-out;
+}
+
+.hover-translate-y:hover {
+  transform: translateY(-1.5px)
+}
+
+input[type=submit] {
+  cursor: pointer;
+  transition: all .1s ease-out;
+  margin-top: 2rem;
+  width: 1rem;
+  margin: 0rem auto 0rem auto;
+  background-color: var(--white);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, .15);
+  transition: all .15 ease-out;
+}
+
+input[type=submit]:hover {
+  transform: translateY(-1px);
+}
+
+input[type=submit]:active {
+  transform: translateY(-0px);
+  filter: brightness(.9);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+
+}

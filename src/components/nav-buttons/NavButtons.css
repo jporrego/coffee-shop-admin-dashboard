@@ -1,0 +1,36 @@
+.nav-buttons {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+}
+
+.nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-button-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    padding: 1rem;
+    background-color: var(--black);
+}
+
+.nav-button svg {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+
+}
+
+.nav-button:hover {}

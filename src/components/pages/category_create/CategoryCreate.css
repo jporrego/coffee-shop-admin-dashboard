@@ -1,0 +1,37 @@
+.category-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 75rem;
+    height: 100%;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: var(--white);
+}
+
+.category-create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    max-width: 40rem;
+    background-color: var(--grey-light);
+    padding: 1rem;
+    margin: 3rem auto;
+    border-radius: .5rem;
+}
+
+.category-create-form label {
+    font-weight: 700;
+}
+
+.category-create-form input {
+    font-family: var(--font-primary);
+    background-color: var(--white);
+    width: 25rem;
+    padding: .5rem;
+    border-style: none;
+    border-radius: .25rem;
+}

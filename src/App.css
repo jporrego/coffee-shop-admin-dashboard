@@ -1,0 +1,30 @@
+.app {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--cream);
+
+}
+
+.content {
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0rem 2rem;
+
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem;
+  height: 100%;
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: var(--white);
+}

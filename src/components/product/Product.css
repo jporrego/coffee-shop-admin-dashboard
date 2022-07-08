@@ -1,0 +1,116 @@
+.product {
+    display: grid;
+    grid-template-columns: 20% repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "img name name"
+        "img details buttons";
+    background-color: var(--white);
+    width: 90%;
+    max-width: 60rem;
+    height: 6rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    align-self: flex-start;
+}
+
+.product__name {
+    grid-area: name;
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+    font-weight: 700;
+}
+
+.product__details {
+    grid-area: details;
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+    gap: 2rem;
+    font-weight: 600;
+}
+
+.product__stock {
+    color: var(--red);
+}
+
+.product__img {
+    grid-area: img;
+    max-height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.product__img img {
+    height: 80%;
+}
+
+.product__buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 0 1.5rem;
+}
+
+.product__buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+    border-radius: .4rem;
+    font-weight: 700;
+    /* text-decoration: none;
+    text-transform: uppercase; */
+}
+
+.product__buttons svg {
+    display: none;
+    font-size: 1.6rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .product {
+        /* height: 10rem; */
+    }
+
+    .product__img {
+        grid-area: img;
+        /* max-height: 10rem; */
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .product__img img {
+        height: 100%;
+    }
+
+    .product__buttons a {
+        text-decoration: none;
+    }
+
+    .product__buttons svg {
+        display: block;
+        font-size: 1.6rem;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    .product {
+        font-size: 1.4rem;
+    }
+
+    .product {
+        align-self: flex-start;
+    }
+}
+
+@media only screen and (min-width: 1600px) {}

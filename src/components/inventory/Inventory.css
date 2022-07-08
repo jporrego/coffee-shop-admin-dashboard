@@ -1,0 +1,50 @@
+.inventory {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content 90%;
+    width: 100%;
+    max-width: 75rem;
+    height: 100%;
+    gap: 1rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: var(--white);
+}
+
+.inventory-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.inventory-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inventory-buttons>a {
+    text-decoration: none;
+    background-color: var(--brown-light);
+    color: var(--white);
+    border-radius: .5rem;
+    padding: .25rem 1rem;
+    font-size: 1.4rem;
+}
+
+.inventory-buttons>a:hover {
+    padding: .25rem 1.2rem;
+}
+
+.inventory-content {
+    max-height: 100%;
+    /* overflow: auto; */
+    border-radius: 2rem;
+    background-color: var(--grey-light)
+}
+
+@media only screen and (min-width: 1600px) {
+    .inventory {
+        height: 100%;
+    }
+}
