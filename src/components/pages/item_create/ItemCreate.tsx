@@ -93,7 +93,7 @@ const ItemCreate = () => {
         resData.message && showErrorMessage(resData.message);
         return;
       } else {
-        navigate(`item/${resData._id}`);
+        navigate(process.env.REACT_APP_API_URL + `item/${resData._id}`);
       }
     } catch (error) {
       setLoading(false);
