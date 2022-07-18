@@ -197,8 +197,18 @@ const ItemEdit = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="item-create-form">
         {/* register your input into the hook by invoking the "register" function */}
         <label htmlFor="name">Item Name</label>
-        <input {...register("name", { required: true })} maxLength={30} />
-        {errors.name && <span>Name is required</span>}
+        <input
+          {...register("name", {
+            required: true,
+            pattern: {
+              value: /^[a-zA-Z0-9\s]*$/,
+              message: "Please only use alphanumeric characters",
+            },
+          })}
+          maxLength={30}
+        />
+        {errors.name?.type === "required" && <span>Name is required.</span>}
+        {errors.name?.message && <span>{errors.name?.message}</span>}
 
         <label htmlFor="brand">Brand</label>
         <select {...register("brand", { required: true })}>
@@ -222,10 +232,21 @@ const ItemEdit = () => {
 
         <label>Description</label>
         <textarea
-          {...register("description", { required: true })}
+          {...register("description", {
+            required: true,
+            pattern: {
+              value: /^[a-zA-Z0-9\s,.!-]*$/,
+              message: "Please only use alphanumeric characters",
+            },
+          })}
           maxLength={230}
         />
-        {errors.description && <span>Name is required</span>}
+        {errors.description?.type === "required" && (
+          <span>Description is required.</span>
+        )}
+        {errors.description?.message && (
+          <span>{errors.description?.message}</span>
+        )}
 
         <label>Price</label>
         <input
