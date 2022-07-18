@@ -197,7 +197,7 @@ const ItemEdit = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="item-create-form">
         {/* register your input into the hook by invoking the "register" function */}
         <label htmlFor="name">Item Name</label>
-        <input {...register("name", { required: true })} />
+        <input {...register("name", { required: true })} maxLength={30} />
         {errors.name && <span>Name is required</span>}
 
         <label htmlFor="brand">Brand</label>
@@ -221,15 +221,28 @@ const ItemEdit = () => {
         {errors.category && <span>Category is required</span>}
 
         <label>Description</label>
-        <textarea {...register("description", { required: true })} />
+        <textarea
+          {...register("description", { required: true })}
+          maxLength={230}
+        />
         {errors.description && <span>Name is required</span>}
 
         <label>Price</label>
-        <input {...register("price", { required: true, min: 0 })} />
+        <input
+          {...register("price", { required: true, min: 0 })}
+          type="number"
+          min={1}
+          max={999}
+        />
         {errors.description && <span>Price is required</span>}
 
         <label>Stock</label>
-        <input {...register("stock", { required: true, min: 0 })} />
+        <input
+          {...register("stock", { required: true, min: 0 })}
+          type="number"
+          min={1}
+          max={999}
+        />
         {errors.description && <span>Stock is required</span>}
 
         <label>Picture</label>
