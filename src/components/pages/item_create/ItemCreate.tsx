@@ -126,8 +126,18 @@ const ItemCreate = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="item-create-form">
         {/* register your input into the hook by invoking the "register" function */}
         <label htmlFor="name">Item Name</label>
-        <input {...register("name", { required: true })} maxLength={30} />
-        {errors.name && <span>Name is required</span>}
+        <input
+          {...register("name", {
+            required: true,
+            pattern: {
+              value: /^[a-zA-Z0-9]*$/,
+              message: "Name can only be alphanumeric characters",
+            },
+          })}
+          maxLength={30}
+        />
+        {errors.name?.type === "required" && <span>Name is required.</span>}
+        {errors.name?.message && <span>{errors.name?.message}</span>}
 
         <label htmlFor="brand">Brand</label>
         <select {...register("brand", { required: true })}>
