@@ -130,8 +130,8 @@ const ItemCreate = () => {
           {...register("name", {
             required: true,
             pattern: {
-              value: /^[a-zA-Z0-9]*$/,
-              message: "Name can only be alphanumeric characters",
+              value: /^[a-zA-Z0-9\s]*$/,
+              message: "Please only use alphanumeric characters",
             },
           })}
           maxLength={30}
@@ -162,10 +162,21 @@ const ItemCreate = () => {
         {/* include validation with required or other standard HTML validation rules */}
         <label>Description</label>
         <textarea
-          {...register("description", { required: true })}
+          {...register("description", {
+            required: true,
+            pattern: {
+              value: /^[a-zA-Z0-9\s,.!-]*$/,
+              message: "Please only use alphanumeric characters",
+            },
+          })}
           maxLength={230}
         />
-        {errors.description && <span>Name is required</span>}
+        {errors.description?.type === "required" && (
+          <span>Description is required.</span>
+        )}
+        {errors.description?.message && (
+          <span>{errors.description?.message}</span>
+        )}
 
         <label>Price</label>
         <input
