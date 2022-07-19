@@ -24,6 +24,9 @@ function ItemList() {
       if (process.env.REACT_APP_API_URL !== undefined) {
         try {
           setLoading(true);
+          setErrorMsg(
+            "Starting Heroku server. This can take around 10 seconds..."
+          );
 
           const response = await fetch(process.env.REACT_APP_API_URL);
           const data = await response.json();
@@ -36,7 +39,9 @@ function ItemList() {
           console.log(error);
           setLoading(false);
           if (tryToFetch) {
-            setErrorMsg("Failed to connect to the server... trying again...");
+            setErrorMsg(
+              "Starting Heroku server. This can take around 10 seconds..."
+            );
           } else {
             setErrorMsg("Failed to connect to the server.");
           }
@@ -77,7 +82,7 @@ function ItemList() {
           <img src={Spinner} alt="spinner" />
         </div>
       )}
-      {errorMsg}
+      <div className="error-msg">{errorMsg}</div>
     </div>
   );
 }
