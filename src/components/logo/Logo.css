@@ -28,3 +28,9 @@
     font-size: 2rem;
     color: var(--brown-dark);
 }
+
+@media only screen and (max-width: 800px) {
+    .logo {
+        display: none;
+    }
+}

@@ -34,3 +34,9 @@
 }
 
 .nav-button:hover {}
+
+@media only screen and (max-width: 800px) {
+    .nav-buttons {
+        display: none;
+    }
+}

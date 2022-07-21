@@ -2,9 +2,8 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--cream);
-
 }
 
 .content {
@@ -27,4 +26,25 @@
   border-radius: 2rem;
   padding: 2rem;
   background-color: var(--white);
+}
+
+@media only screen and (max-width: 800px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cream);
+    gap: 1rem;
+  }
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0rem 0rem;
+  }
+
 }
