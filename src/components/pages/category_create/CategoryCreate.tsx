@@ -46,8 +46,19 @@ const CategoryCreate = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="category-create-form">
         {/* register your input into the hook by invoking the "register" function */}
         <label htmlFor="name">Category Name</label>
-        <input {...register("name", { required: true })} />
-        {errors.name && <span>Name is required</span>}
+        <input
+          {...register("name", {
+            required: true,
+            pattern: {
+              value: /^[a-zA-Z0-9\s]*$/,
+              message: "Please only use alphanumeric characters",
+            },
+          })}
+          minLength={1}
+          maxLength={30}
+        />
+        {errors.name?.type === "required" && <span>Name is required.</span>}
+        {errors.name?.message && <span>{errors.name?.message}</span>}
         <input type="submit" />
       </form>
     </div>
