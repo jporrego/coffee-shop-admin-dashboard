@@ -134,6 +134,7 @@ const ItemCreate = () => {
               message: "Please only use alphanumeric characters",
             },
           })}
+          minLength={1}
           maxLength={30}
         />
         {errors.name?.type === "required" && <span>Name is required.</span>}
